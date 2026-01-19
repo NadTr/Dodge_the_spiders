@@ -33,6 +33,7 @@ position = Vector2(240, 450)
 curve = SubResource("Curve2D_ig7tw")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2(-184.24707, -264)
 
 [node name="HUD" parent="." instance=ExtResource("4_1bvp3")]
 
