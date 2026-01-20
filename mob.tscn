@@ -1,46 +1,86 @@
-[gd_scene load_steps=10 format=3 uid="uid://cm6ujgjh8jh0f"]
+[gd_scene load_steps=14 format=3 uid="uid://cm6ujgjh8jh0f"]
 
 [ext_resource type="Script" uid="uid://pp24guhpyfo1" path="res://mob.gd" id="1_1qmh0"]
-[ext_resource type="Texture2D" uid="uid://bwk6hhrnnrm87" path="res://art/enemyFlyingAlt_1.png" id="1_b3mxk"]
-[ext_resource type="Texture2D" uid="uid://cy477e8fryoeq" path="res://art/enemyFlyingAlt_2.png" id="2_1qmh0"]
-[ext_resource type="Texture2D" uid="uid://dqkqb1bp8af4x" path="res://art/enemySwimming_1.png" id="3_gfurk"]
-[ext_resource type="Texture2D" uid="uid://b34qj1chx6thw" path="res://art/enemySwimming_2.png" id="4_ieysi"]
-[ext_resource type="Texture2D" uid="uid://clg3c1p0wrlj7" path="res://art/enemyWalking_1.png" id="5_cixyi"]
-[ext_resource type="Texture2D" uid="uid://bt7xfnvxxujnu" path="res://art/enemyWalking_2.png" id="6_7ulmv"]
+[ext_resource type="Texture2D" uid="uid://dxpypnxpvb658" path="res://art/monster-spider-recolors.png" id="2_nokgg"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_jfba5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubaqv"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p11y5"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5nov"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nokgg"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(0, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3mxk"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(80, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qmh0"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(160, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfurk"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(0, 192, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieysi"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(80, 192, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cixyi"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(160, 192, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dy6sc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_b3mxk")
+"texture": SubResource("AtlasTexture_ubaqv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_1qmh0")
+"texture": SubResource("AtlasTexture_p11y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5nov")
 }],
 "loop": true,
-"name": &"fly",
+"name": &"spider_down",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_gfurk")
+"texture": SubResource("AtlasTexture_nokgg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_ieysi")
+"texture": SubResource("AtlasTexture_b3mxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qmh0")
 }],
 "loop": true,
-"name": &"swim",
+"name": &"spider_right",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_cixyi")
+"texture": SubResource("AtlasTexture_gfurk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_7ulmv")
+"texture": SubResource("AtlasTexture_ieysi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cixyi")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"spider_up",
 "speed": 5.0
 }]
 
@@ -56,8 +96,8 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
-sprite_frames = SubResource("SpriteFrames_jfba5")
-animation = &"walk"
+sprite_frames = SubResource("SpriteFrames_dy6sc")
+animation = &"spider_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5707964

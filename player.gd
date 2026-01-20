@@ -32,16 +32,17 @@ func _process(delta: float) -> void:
 	position = position.clamp(Vector2.ZERO, screen_size)
 	
 	if velocity.x != 0:
-		$AnimatedSprite2D.animation = "walk"
+		$AnimatedSprite2D.animation = "crawl_right"
 		$AnimatedSprite2D.flip_v = false
 		# See the note below about the following boolean assignment.
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 	elif velocity.y != 0:
-		$AnimatedSprite2D.animation = "up"
+		$AnimatedSprite2D.animation = "crawl_up"
 		$AnimatedSprite2D.flip_v = velocity.y > 0
 
 func _on_body_entered(_body):
 	hide() # Player disappears after being hit.
+	$AnimatedSprite2D.animation = "die_up"
 	hit.emit()
 	# Must be deferred as we can't change physics properties on a physics callback.
 	$CollisionShape2D.set_deferred("disabled", true)
