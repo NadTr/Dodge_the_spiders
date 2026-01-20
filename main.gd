@@ -2,15 +2,25 @@ extends Node
 
 @export var mob_scene: PackedScene
 var score
+var player_lifes
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	new_game()
+	pass
+	#new_game()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
+func player_hit():
+	if player_lifes > 0:
+		$HitSound.play()
+		player_lifes -=1
+		$HUD.update_player_lifes(player_lifes)
+	else:
+		game_over()
+		print("game over")
 
 func game_over():
 	$ScoreTimer.stop()
@@ -21,7 +31,9 @@ func game_over():
 
 func new_game():
 	score = 0
-	$Player.start($StartPosition.position)
+	player_lifes = 4
+	$HUD.update_player_lifes(player_lifes)
+	$Player.start($StartPosition.position,player_lifes)
 	$StartTimer.start()
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")

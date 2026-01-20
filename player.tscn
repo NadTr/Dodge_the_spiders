@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://c40o0mswrwmwm"]
 
 [ext_resource type="Script" uid="uid://if1wrbfpjmwi" path="res://player.gd" id="1_q6r6c"]
-[ext_resource type="Texture2D" uid="uid://dvtcgjy72ilxm" path="res://art/roach.png" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://ysl0wjtp254t" path="res://art/roach.png" id="2_onrkg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
 atlas = ExtResource("2_onrkg")
@@ -90,8 +90,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hol4"]
-radius = 11.0
-height = 44.0
+radius = 9.0
+height = 40.0
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_q6r6c")

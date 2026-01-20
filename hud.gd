@@ -24,7 +24,7 @@ func show_game_over():
 	# Wait until the MessageTimer has counted down.
 	await $MessageTimer.timeout
 
-	$Message.text = "Dodge the Creeps!"
+	$Message.text = "Dodge the Spiders!"
 	$Message.show()
 	# Make a one-shot timer and wait for it to finish.
 	await get_tree().create_timer(1.0).timeout
@@ -32,6 +32,9 @@ func show_game_over():
 
 func update_score(score):
 	$ScoreLabel.text = str(score)
+	
+func update_player_lifes(player_lifes):
+	$LifeLabel.text = "Lifes: " + str(player_lifes)
 
 func _on_start_button_pressed():
 	$StartButton.hide()
@@ -39,3 +42,6 @@ func _on_start_button_pressed():
 
 func _on_message_timer_timeout():
 	$Message.hide()
+	
+func show_life():
+	pass
