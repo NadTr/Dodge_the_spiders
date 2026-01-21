@@ -14,15 +14,16 @@ func _process(delta: float) -> void:
 	pass
 
 func player_hit():
+	player_lifes -=1
+	$HUD.update_player_lifes(player_lifes)
 	if player_lifes > 0:
 		$HitSound.play()
-		player_lifes -=1
-		$HUD.update_player_lifes(player_lifes)
 	else:
 		game_over()
 		print("game over")
 
 func game_over():
+	$Player.die()
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
@@ -33,7 +34,7 @@ func new_game():
 	score = 0
 	player_lifes = 4
 	$HUD.update_player_lifes(player_lifes)
-	$Player.start($StartPosition.position,player_lifes)
+	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")

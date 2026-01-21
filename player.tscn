@@ -90,15 +90,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hol4"]
-radius = 9.0
-height = 40.0
+height = 50.0
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_q6r6c")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.8, 1.8)
 sprite_frames = SubResource("SpriteFrames_rj586")
 animation = &"crawl_right"
 

@@ -4,7 +4,6 @@ signal hit
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
-var lifes = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,16 +42,15 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(_body):
 	hit.emit()
-	if lifes > 0:
-		lifes -= 1
-	else:
-		hide() # Player disappears after being hit.
-		$AnimatedSprite2D.animation = "die_up"
-		# Must be deferred as we can't change physics properties on a physics callback.
-		$CollisionShape2D.set_deferred("disabled", true)
 	
-func start(pos, nb_lifes):
+func die():
+	hide() # Player disappears after being hit.
+	$AnimatedSprite2D.animation = "die_up"
+	# Must be deferred as we can't change physics properties on a physics callback.
+	$CollisionShape2D.set_deferred("disabled", true)
+	
+	
+func start(pos):
 	position = pos
-	lifes = nb_lifes
 	show()
 	$CollisionShape2D.disabled = false
